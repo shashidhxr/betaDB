@@ -1,11 +1,12 @@
-#include "in_memory_db_impl.hpp"
+#include "db.hpp"
 #include <algorithm>
+#include <iostream>
 
-void InMemoryDBImpl::Set(const std::string& key, const std::string& field, const std::string& value){
+void DBImpl::Set(const std::string& key, const std::string& field, const std::string& value){
     data[key][field] = value;
 }
 
-std::optional<std::string> InMemoryDBImpl::Get(const std::string& key, const std::string& field){
+std::optional<std::string> DBImpl::Get(const std::string& key, const std::string& field){
     auto key_it = data.find(key);
     if(key_it != data.end()){
         auto field_it = key_it->second.find(field);
@@ -16,7 +17,7 @@ std::optional<std::string> InMemoryDBImpl::Get(const std::string& key, const std
     return std::nullopt;
 }
 
-bool InMemoryDBImpl::Delete(const std::string& key, const std::string& field){
+bool DBImpl::Delete(const std::string& key, const std::string& field){
     auto key_it = data.find(key);
     if(key_it != data.end()){
         auto field_it = key_it->second.find(field);
@@ -28,7 +29,7 @@ bool InMemoryDBImpl::Delete(const std::string& key, const std::string& field){
     return false;
 }
 
-std::vector<std::string> InMemoryDBImpl::Scan(const std::string& key){
+std::vector<std::string> DBImpl::Fetch(const std::string& key){
     std::vector<std::string> result;
     
     auto key_it = data.find(key);
@@ -42,19 +43,27 @@ std::vector<std::string> InMemoryDBImpl::Scan(const std::string& key){
     return result;
 }
 
-std::vector<std::string> InMemoryDBImpl::ScanByPrefix(const std::string& key, const std::string& prefix){
+std::vector<std::string> DBImpl::FetchByPrefix(const std::string& key, const std::string& prefix){
     std::vector<std::string> result;
-    
+
     auto key_it = data.find(key);
     if(key_it == data.end()){
         return result;
     }
-    
-    for(auto& [field, value]: key_it->second){
+    for(const auto& [field, value]: key_it->second){
         if(field.find(prefix) == 0){
-            result.push_back(field + "(" + value + ")");
+            result.push_back(field + "->" + value);
         }
     }
     std::sort(result.begin(), result.end());
     return result;
+}   
+
+void DBImpl::PrintDB() {
+    for (const auto& [key, fields] : data) {
+        std::cout << "Key: " << key << std::endl;
+        for (const auto& [field, value] : fields) {
+            std::cout << "  " << field << " -> " << value << std::endl;
+        }
+    }
 }
