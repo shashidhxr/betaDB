@@ -117,24 +117,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named server
+# Target rules for targets named beta
 
 # Build rule for target.
-server: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 server
-.PHONY : server
+beta: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 beta
+.PHONY : beta
 
 # fast build rule for target.
-server/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/build
-.PHONY : server/fast
+beta/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/beta.dir/build.make CMakeFiles/beta.dir/build
+.PHONY : beta/fast
 
 src/db.o: src/db.cpp.o
 .PHONY : src/db.o
 
 # target to build an object file
 src/db.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/db.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/beta.dir/build.make CMakeFiles/beta.dir/src/db.cpp.o
 .PHONY : src/db.cpp.o
 
 src/db.i: src/db.cpp.i
@@ -142,7 +142,7 @@ src/db.i: src/db.cpp.i
 
 # target to preprocess a source file
 src/db.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/db.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/beta.dir/build.make CMakeFiles/beta.dir/src/db.cpp.i
 .PHONY : src/db.cpp.i
 
 src/db.s: src/db.cpp.s
@@ -150,32 +150,32 @@ src/db.s: src/db.cpp.s
 
 # target to generate assembly for a file
 src/db.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/db.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/beta.dir/build.make CMakeFiles/beta.dir/src/db.cpp.s
 .PHONY : src/db.cpp.s
 
-src/server.o: src/server.cpp.o
-.PHONY : src/server.o
+src/main.o: src/main.cpp.o
+.PHONY : src/main.o
 
 # target to build an object file
-src/server.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/server.cpp.o
-.PHONY : src/server.cpp.o
+src/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/beta.dir/build.make CMakeFiles/beta.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
 
-src/server.i: src/server.cpp.i
-.PHONY : src/server.i
+src/main.i: src/main.cpp.i
+.PHONY : src/main.i
 
 # target to preprocess a source file
-src/server.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/server.cpp.i
-.PHONY : src/server.cpp.i
+src/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/beta.dir/build.make CMakeFiles/beta.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
 
-src/server.s: src/server.cpp.s
-.PHONY : src/server.s
+src/main.s: src/main.cpp.s
+.PHONY : src/main.s
 
 # target to generate assembly for a file
-src/server.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/server.cpp.s
-.PHONY : src/server.cpp.s
+src/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/beta.dir/build.make CMakeFiles/beta.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
 
 # Help Target
 help:
@@ -185,13 +185,13 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... server"
+	@echo "... beta"
 	@echo "... src/db.o"
 	@echo "... src/db.i"
 	@echo "... src/db.s"
-	@echo "... src/server.o"
-	@echo "... src/server.i"
-	@echo "... src/server.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
 .PHONY : help
 
 
