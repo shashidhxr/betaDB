@@ -1,5 +1,5 @@
-#ifndef DB_HPP_
-#define DB_HPP_
+#ifndef DB_HPP
+#define DB_HPP
 
 #include "interface.hpp"
 #include <unordered_map>

@@ -12,6 +12,4 @@ int main(){
     for(auto str: res){
         std::cout << str << std::endl;
     }
-
-
 }

@@ -1,5 +1,5 @@
-#ifndef INTERFACE_HPP_ 
-#define INTERFACE_HPP_
+#ifndef INTERFACE_HPP 
+#define INTERFACE_HPP
 
 #include <string>
 #include <vector>
