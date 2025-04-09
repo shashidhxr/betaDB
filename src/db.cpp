@@ -44,7 +44,7 @@ std::vector<std::string> DBImpl::Fetch(const std::string& key){
     if(key_it == data.end()){
         return result;
     }
-    for(const auto& [field, Entry]: key_it->second){        // it and then it.first and it.second.value
+    for(const auto& [field, Entry]: key_it->second){        // it and t n it.first and it.second.value
         result.push_back(field + "-" + Entry.value);
     }
     std::sort(result.begin(), result.end());
