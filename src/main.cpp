@@ -58,7 +58,7 @@ int main(){
             std::cout << "Thank you for using BetaDB!";
             break;
         } else if (cmd == "HELP"){
-            std::cout << "Commands - usage:\n1. SET - SET <key> <field> <value>\n2. GET - GET <key> <field>\n3. DELETE - DELETE <key> <field>\n4. FETCH - FETCH <key>\n5. PREFIX - PREFIX <key> <prefix>\n6. EXIT\n7. HELP\n";
+            std::cout << "Commands - usage:\n1. SET - SET <key> <field> <value> <ttl>(sec)(optional)\n2. GET - GET <key> <field>\n3. DELETE - DELETE <key> <field>\n4. FETCH - FETCH <key>\n5. PREFIX - PREFIX <key> <prefix>\n6. EXIT\n7. HELP\n";
         }
         else {
             std::cout << "unknown command. Type HELP for Manual.\n";
